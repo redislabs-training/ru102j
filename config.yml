@@ -1,0 +1,18 @@
+logging:
+  level: INFO
+  loggers:
+    com.redislabs.university: DEBUG
+defaultName: "RediSolar"
+redis:
+  host: localhost
+  port: 6379
+  password:
+server:
+  rootPath: /api
+  applicationConnectors:
+    - type: http
+      port: 8081
+  adminConnectors:
+    - type: http
+      port: 8084
+
