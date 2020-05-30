@@ -1,4 +1,22 @@
-# RediSolar
+# RediSolar for Java
+
+Introduction
+---
+
+This is the sample application codebase for RU102J, [Redis for Java Developers](https://university.redislabs.com/courses/ru102j/) at [Redis University](https://university.redislabs.com).
+
+Solutions to the course programming challenges can be found on the `solutions` branch.
+
+Prerequisites
+---
+
+In order to start and run this application, you will need:
+
+* Java 8 JDK or higher
+* Maven
+* Access to a local or remote installation of [Redis](https://redis.io/download) version 5 or newer (local preferred)
+* If you want to try the RedisTimeSeries exercises, you'll need to make sure that your Redis installation also has the [RedisTimeSeries Module](https://oss.redislabs.com/redistimeseries/) installed
+
 
 How to Start the RediSolar Application
 ---
