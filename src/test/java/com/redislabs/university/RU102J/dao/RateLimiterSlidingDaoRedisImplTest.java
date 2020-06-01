@@ -6,6 +6,7 @@ import org.junit.*;
 import org.junit.rules.ExpectedException;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPoolConfig;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
@@ -21,8 +22,17 @@ public class RateLimiterSlidingDaoRedisImplTest {
 
     @BeforeClass
     public static void setUp() throws Exception {
-        jedisPool = new JedisPool(HostPort.getRedisHost(), HostPort.getRedisPort());
-        jedis = new Jedis(HostPort.getRedisHost(), HostPort.getRedisPort());
+        String password = HostPort.getRedisPassword();
+
+        if (password.length() > 0) {
+            jedisPool = new JedisPool(new JedisPoolConfig(), HostPort.getRedisHost(), HostPort.getRedisPort(), 2000, password);
+            jedis = new Jedis(HostPort.getRedisHost(), HostPort.getRedisPort());
+
+            jedis.auth(password);
+        } else {
+            jedisPool = new JedisPool(HostPort.getRedisHost(), HostPort.getRedisPort());
+            jedis = new Jedis(HostPort.getRedisHost(), HostPort.getRedisPort());    
+        }
         keyManager = new TestKeyManager("test");
     }
 
