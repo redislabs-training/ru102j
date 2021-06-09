@@ -29,7 +29,8 @@ How to Start the RediSolar Application
 
 1. Run `mvn package` to build your application.
 2. Load the sample data: `java -jar target/redisolar-1.0.jar load`.  If you want to erase everything in Redis before loading the data, use `java -jar target/redisolar-1.0.jar load --flush true`, but be aware that this will delete ALL keys in your Redis database.
-3. To check that your application is running enter url `http://localhost:8081`, substituting `localhost` for the hostname that you're running the application on if necessary.
+3. Start the application with `java -jar target/redisolar-1.0.jar server config.yml`
+4. To check that your application is running enter url `http://localhost:8081`, substituting `localhost` for the hostname that you're running the application on if necessary.
 
 ### When using Redis on another host, port or with a password:
 
