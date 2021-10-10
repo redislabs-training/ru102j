@@ -71,6 +71,10 @@ To rebuild the application without running the tests:
 mvn package -DskipTests 
 ```
 
+Application Screenshot
+---
+![Screenshot](screenshot.png)
+
 Subscribe to our YouTube Channel
 ---
 
