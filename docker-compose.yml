@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  redis:
+    container_name: rediscrashcourse
+    image: "redislabs/redistimeseries"
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redisdata:/data
+    entrypoint:
+      redis-server --appendonly yes
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
