@@ -8,7 +8,9 @@ services:
     volumes:
       - ./redisdata:/data
     entrypoint:
-      redis-server --appendonly yes
+      redis-server
+        --loadmodule /usr/lib/redis/modules/redistimeseries.so
+        --appendonly yes
     deploy:
       replicas: 1
       restart_policy:
