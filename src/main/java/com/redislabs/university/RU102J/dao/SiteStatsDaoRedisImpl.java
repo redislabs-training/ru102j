@@ -81,6 +81,16 @@ public class SiteStatsDaoRedisImpl implements SiteStatsDao {
     // Challenge #3
     private void updateOptimized(Jedis jedis, String key, MeterReading reading) {
         // START Challenge #3
+        try(Transaction t = jedis.multi()){
+            String reportingTime = ZonedDateTime.now(ZoneOffset.UTC).toString();
+            t.hset(key, SiteStats.reportingTimeField, reportingTime);
+            t.hincrBy(key, SiteStats.countField, 1);
+            t.expire(key, weekSeconds);
+            this.compareAndUpdateScript.updateIfGreater(t, key, SiteStats.maxWhField, reading.getWhGenerated());
+            this.compareAndUpdateScript.updateIfLess(t, key, SiteStats.minWhField, reading.getWhGenerated());
+            this.compareAndUpdateScript.updateIfGreater(t, key, SiteStats.maxCapacityField, getCurrentCapacity(reading));
+            t.exec();
+        }
         // END Challenge #3
     }
 
