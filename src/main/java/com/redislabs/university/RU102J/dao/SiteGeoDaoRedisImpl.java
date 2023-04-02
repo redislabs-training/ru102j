@@ -35,7 +35,7 @@ public class SiteGeoDaoRedisImpl implements SiteGeoDao {
             Set<Site> sites = new HashSet<>(keys.size());
             for (String key : keys) {
                 Map<String, String> site = jedis.hgetAll(key);
-                if (!site.isEmpty()) {
+                if (site != null && !site.isEmpty()) {
                     sites.add(new Site(site));
                 }
             }
