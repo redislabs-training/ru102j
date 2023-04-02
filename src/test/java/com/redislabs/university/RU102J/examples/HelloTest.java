@@ -42,6 +42,7 @@ public class HelloTest {
     }
 
     @Test
+    //this is for a multithreaded environment
     public void sayHelloThreadSafe() {
         JedisPool jedisPool;
 
