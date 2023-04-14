@@ -2,15 +2,12 @@ version: "3.9"
 services:
   redis:
     container_name: redis_ru102j
-    image: "redislabs/redistimeseries"
+    image: "redis/redis-stack:latest"
     ports:
       - "6379:6379"
+      - "8001:8001"
     volumes:
       - ./redisdata:/data
-    entrypoint:
-      redis-server
-        --loadmodule /usr/lib/redis/modules/redistimeseries.so
-        --appendonly yes
     deploy:
       replicas: 1
       restart_policy:

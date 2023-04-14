@@ -16,26 +16,20 @@ In order to start and run this application, you will need:
 
 * Java 8 JDK or higher
 * [Maven](https://maven.apache.org/)
-* Access to a local or remote installation of [Redis](https://redis.io/download) version 5 or newer (local preferred, Docker is a good option - see instructions below)
-* If you want to try the RedisTimeSeries exercises, you'll need to make sure that your Redis installation also has the [RedisTimeSeries Module](https://oss.redis.com/redistimeseries/) installed (or use the provided Docker Compose file which gives you Redis with RedisTimeSeries)
+* Access to a local or remote installation of [Redis Stack](https://redis.io/docs/stack/get-started/install/) (local preferred, Docker is a good option - see instructions below)
 * Optional: [Docker](https://www.docker.com/get-started/)
 * Optional but recommended: [RedisInsight](https://redis.com/redis-enterprise/redis-insight/) to visualize the data in Redis.  This is a graphical alternative to the `redis-cli` command
 
-If you're using Windows, check out the following resources for help with running Redis:
-
-* [Redis Blog - Running Redis on Windows 10](https://redis.com/blog/redis-on-windows-10/)
-* [Microsoft - Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-
-Running Redis with Docker
+Running Redis Stack with Docker
 ---
 
-We've provided a Docker Compose file as part of this repo, so to start Redis with the RedisTimeSeries module installed, use the following command:
+We've provided a Docker Compose file as part of this repo, so to start Redis Stack, use the following command:
 
 ```bash
 docker-compose up -d
 ```
 
-This will start a Redis with RedisTimeSeries container on localhost port 6379 with no password and you should see output similar to the following:
+This will start a Redis Stack container with Redis exposed on localhost port 6379 with no password.  You should see output similar to the following:
 
 ```
 Creating network "ru102j_default" with the default driver
@@ -112,6 +106,15 @@ To rebuild the application without running the tests:
 ```
 mvn package -DskipTests 
 ```
+
+Optional (but Recommended): RedisInsight
+---
+
+RedisInsight is a graphical tool for viewing data in Redis and managing Redis server instances.  You don't need to install it to be successful with this course, but we recommend it as a good way of viewing data stored in Redis.
+
+To use RedisInsight, you'll need to [download it](https://redis.io/docs/ui/insight/) then point it at your Redis instance.
+
+If you're using the Docker Compose file provided with this course to run Redis Stack, you can optionally choose to access a web-based version of Redis Stack at `http://localhost:8001` whenever the container is running.
 
 Need Help / Join our Community
 ---
