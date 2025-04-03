@@ -5,7 +5,7 @@ Introduction
 
 ![Screenshot](screenshot.png)
 
-This is the sample application codebase for RU102J, [Redis for Java Developers](https://university.redis.com/courses/ru102j/) at [Redis University](https://university.redis.com).
+This is the sample application codebase for RU102J, [Redis for Java Developers](https://university.redis.io/learningpath/kllayn0wtd847i) on [Redis University](https://university.redis.com).
 
 Solutions to the course programming challenges can be found on the `solutions` branch.
 
@@ -107,7 +107,7 @@ To rebuild the application without running the tests:
 mvn package -DskipTests 
 ```
 
-Optional (but Recommended): RedisInsight
+Optional (But recommended): RedisInsight
 ---
 
 RedisInsight is a graphical tool for viewing data in Redis and managing Redis server instances.  You don't need to install it to be successful with this course, but we recommend it as a good way of viewing data stored in Redis.
