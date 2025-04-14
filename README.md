@@ -26,8 +26,10 @@ Running Redis Stack with Docker
 We've provided a Docker Compose file as part of this repo, so to start Redis Stack, use the following command:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
+
+*Note:* in environments using older versions of Docker Compose (v1.x), use the ```docker-compose up -d``` command instead.
 
 This will start a Redis Stack container with Redis exposed on localhost port 6379 with no password.  You should see output similar to the following:
 
@@ -53,7 +55,7 @@ you are connected to Redis.  Type `quit` to exit the Redis CLI.
 When you are finished working with Redis, shut down the server like so:
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 Redis saves your data in an append only file in the `redisdata` folder, and will re-load it next time you start the container.
